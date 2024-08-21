@@ -1,0 +1,12 @@
+{% extends 'page_wrapper.html' %}
+{% block page %}
+    <div class="container">
+        <h1>{{ tag.name }} tegini o'chirishni xohlaysizmi?</h1>
+        
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">O'chirish</button>
+            <a href="{% url 'main:tags' %}">Bekor qilish</a>
+        </form>
+    </div>
+{% endblock %}

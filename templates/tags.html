@@ -1,0 +1,24 @@
+{% extends 'page_wrapper.html' %}
+{% block page %}
+    <div class="blog_wrapper float_left">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <h1>Teglar</h1>
+                        <ul>
+                            {% for tag in tags %}
+                                <li>
+                                    <a href="{% url 'main:updatetags' tag.id %}">{{ tag.title }}</a>
+                                    <a href="{% url 'main:deletetag' tag.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                </li>
+                            {% empty %}
+                                <li>Teglar mavjud emas.</li>
+                            {% endfor %}
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
